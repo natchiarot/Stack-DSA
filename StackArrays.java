@@ -1,4 +1,5 @@
 package Stacks;
+import java.util.Arrays;
 
 public class StackArrays {
     int [] arr;
@@ -44,9 +45,46 @@ public class StackArrays {
     }
 
     //implement pop method
+    // Since using array lists wasn't used in your code it made the pop method a little trickier.
+    // Learned I could use arraycopy to copy the array elements more efficiently so that way the
+    // element could be physically removed from the array.
+    public void pop() {
+        if (isEmpty()) {
+            System.out.println("Add value(s) to the stack first.");
+        } else {
+           int value = arr[topOfStack];
+           topOfStack--;
+           int[] newArray = new int[arr.length - 1];
+           System.arraycopy(arr, 0, newArray, 0, topOfStack + 1);
+           arr = newArray;
+           System.out.println(value + " Successfully removed.");
+        }
+    }
+
     //implement peek
+    public void peek() {
+        if(isEmpty()) {
+            System.out.println("Add value(s) to the stack first.");
+        } else {
+            int value = arr[topOfStack];
+            System.out.println("Peek: " + value);
+        }
+    }
+
     //implement delete a stack
+    public void deleteStack() {
+        arr = new int[0];
+        topOfStack = -1;
+        System.out.println("Entire stack successfully deleted.");
+    }
     // use the stack datastructure to check whether a word is a palindrome or not eg racecar  == racecar
     //Implement a stack datastructure using LinkedList instead of Arrays
 
+    @Override
+    public String toString() {
+        return "StackArrays{" +
+                "arr=" + Arrays.toString(arr) +
+                ", topOfStack=" + topOfStack +
+                '}';
+    }
 }
