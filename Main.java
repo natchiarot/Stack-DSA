@@ -17,11 +17,11 @@ public class Main {
 //        System.out.println(stackArrays);
 //        stackArrays.isEmpty();
 
-        StringStackArrays stringStackArrays = new StringStackArrays(5);
-        stringStackArrays.push("racecar");
-        stringStackArrays.push("apple");
-        stringStackArrays.palindrome(0);
-        stringStackArrays.palindrome(1);
+//        StringStackArrays stringStackArrays = new StringStackArrays(5);
+//        stringStackArrays.push("racecar");
+//        stringStackArrays.push("apple");
+//        stringStackArrays.palindrome(0);
+//        stringStackArrays.palindrome(1);
 //        stringStackArrays.push("orange");
 //        stringStackArrays.push("banana");
 //        stringStackArrays.push("kelp");
@@ -34,6 +34,25 @@ public class Main {
 //        stringStackArrays.deleteStack();
 //        System.out.println(stringStackArrays);
 //        stringStackArrays.isEmpty();
+
+//        StackLinkedList sLL = new StackLinkedList();
+//        sLL.push(1);
+//        sLL.push(2);
+//        sLL.push(3);
+//        sLL.push(4);
+//        sLL.pop();
+//        sLL.peek();
+//        sLL.isEmpty();
+//        sLL.deleteStack();
+//        System.out.println(sLL);
+//        sLL.isEmpty();
+
+        StringStackLinkedList stringSLL = new StringStackLinkedList();
+        stringSLL.push("hello");
+        stringSLL.push("racecar");
+        stringSLL.push("world");
+        stringSLL.palindrome(0);
+        stringSLL.palindrome(1);
 
     }
 }
