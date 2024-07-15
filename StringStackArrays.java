@@ -1,12 +1,13 @@
 package Stacks;
 import java.util.Arrays;
 
-public class StackArrays {
-    int [] arr;
+// use the stack datastructure to check whether a word is a palindrome or not eg racecar  == racecar
+public class StringStackArrays {
+    String [] arr;
     int topOfStack;
 
-    public StackArrays(int size){
-        this.arr = new int[size];
+    public StringStackArrays(int size){
+        this.arr = new String[size];
         this.topOfStack = -1;
         System.out.println("The stack is created with a size of: " + size);
     }
@@ -34,7 +35,7 @@ public class StackArrays {
     }
 
     //implement a push method
-    public void push(int value){
+    public void push(String value){
         if (isFull()){
             System.out.println("the stack is full");
         } else {
@@ -52,12 +53,12 @@ public class StackArrays {
         if (isEmpty()) {
             System.out.println("Add value(s) to the stack first.");
         } else {
-           int value = arr[topOfStack];
-           topOfStack--;
-           int[] newArray = new int[arr.length - 1];
-           System.arraycopy(arr, 0, newArray, 0, topOfStack + 1);
-           arr = newArray;
-           System.out.println(value + " Successfully removed.");
+            String value = arr[topOfStack];
+            topOfStack--;
+            String[] newArray = new String[arr.length - 1];
+            System.arraycopy(arr, 0, newArray, 0, topOfStack + 1);
+            arr = newArray;
+            System.out.println(value + " Successfully removed.");
         }
     }
 
@@ -66,26 +67,50 @@ public class StackArrays {
         if(isEmpty()) {
             System.out.println("Add value(s) to the stack first.");
         } else {
-            int value = arr[topOfStack];
+            String value = arr[topOfStack];
             System.out.println("Peek: " + value);
         }
     }
 
     //implement delete a stack
     public void deleteStack() {
-       int [] newArray = new int[0];
-       arr = newArray;
+        String [] newArray = new String[0];
+        arr = newArray;
         while (topOfStack != -1) {
             topOfStack--;
         }
         System.out.println("Entire stack successfully deleted.");
     }
 
+    public boolean palindrome(int value) {
+        boolean isPalindrome = false;
+        if (value < 0 || value >= arr.length) {
+            return false;
+        }
+       String[] separatedWord = arr[value].toString().split("");
+
+        // Found something similar to this logic on https://www.scaler.com/topics/reverse-an-array-in-java/
+        // With a bit of tweaking it worked for this.
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (separatedWord[i].equalsIgnoreCase(separatedWord[separatedWord.length - i - 1])) {
+                    isPalindrome = true;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println(arr[value] + " is a palindrome.");
+        } else {
+            System.out.println(arr[value] + " is not a palindrome.");
+        }
+
+        return isPalindrome;
+    }
+
     //Implement a stack datastructure using LinkedList instead of Arrays
 
     @Override
     public String toString() {
-        return "StackArrays{" +
+        return "StringStackArrays{" +
                 "arr=" + Arrays.toString(arr) +
                 ", topOfStack=" + topOfStack +
                 '}';
