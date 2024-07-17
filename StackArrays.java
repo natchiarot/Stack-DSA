@@ -80,4 +80,12 @@ public class StackArrays {
         }
         System.out.println("Entire stack successfully deleted.");
     }
+
+    @Override
+    public String toString() {
+        return "StackArrays{" +
+                "arr=" + Arrays.toString(arr) +
+                ", topOfStack=" + topOfStack +
+                '}';
+    }
 }

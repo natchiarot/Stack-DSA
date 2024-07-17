@@ -29,15 +29,12 @@ public class StringStackLinkedList {
             newNode.value = nodeValue;
             dHead = newNode;
             dTail = newNode;
-            size = 1;
             return;
         }
         newNode.next = null;
         dTail.next = newNode;
         newNode.prev = dTail;
         dTail = newNode;
-
-        size++;
     }
 
     public void isEmpty() {
@@ -135,5 +132,17 @@ public class StringStackLinkedList {
         }
         System.out.println(nodeValue + " is not a palindrome.");
         return false;
+    }
+
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "StringStackLinkedList {Empty Stack}";
+        }
+        return "StringStackLinkedList{" +
+                "head=" + head.stringValue +
+                ", tail=" + tail.stringValue +
+                ", size=" + size +
+                '}';
     }
 }

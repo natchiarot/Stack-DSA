@@ -82,4 +82,16 @@ public class StackLinkedList {
         }
         size = 0;
     }
+
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "StringStackLinkedList {Empty Stack}";
+        }
+        return "StackLinkedList{" +
+                "head=" + head.value +
+                ", tail=" + tail.value +
+                ", size=" + size +
+                '}';
+    }
 }

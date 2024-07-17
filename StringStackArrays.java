@@ -105,4 +105,12 @@ public class StringStackArrays {
 
         return isPalindrome;
     }
+
+    @Override
+    public String toString() {
+        return "StringStackArrays{" +
+                "arr=" + Arrays.toString(arr) +
+                ", topOfStack=" + topOfStack +
+                '}';
+    }
 }
