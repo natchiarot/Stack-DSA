@@ -29,15 +29,12 @@ public class StringStackLinkedList {
             newNode.value = nodeValue;
             dHead = newNode;
             dTail = newNode;
-            size = 1;
             return;
         }
         newNode.next = null;
         dTail.next = newNode;
         newNode.prev = dTail;
         dTail = newNode;
-
-        size++;
     }
 
     public void isEmpty() {
@@ -57,13 +54,15 @@ public class StringStackLinkedList {
         } else {
             node.next = head;
             head = node;
+            System.out.println(nodeValue + " successfully inserted");
         }
         size++;
     }
 
     public void pop() {
         if (head == null) {
-            System.out.println("Stack Linked List is empty.");
+            System.out.println("Add value(s) to the stack first.");
+            return;
         }
         Node tempNode = head;
 
@@ -72,6 +71,8 @@ public class StringStackLinkedList {
             tail = null;
         }
 
+        System.out.println("Value successfully removed.");
+
         size--;
     }
 
@@ -79,7 +80,7 @@ public class StringStackLinkedList {
         if (head == null) {
             System.out.println("Stack Linked List does not exist");
         } else {
-            System.out.println(head.value);
+            System.out.println("Peek: " + head.stringValue);
         }
     }
 
@@ -95,6 +96,7 @@ public class StringStackLinkedList {
             }
             head = null;
             tail = null;
+            System.out.println("Entire stack successfully deleted.");
         }
         size = 0;
     }
@@ -132,4 +134,15 @@ public class StringStackLinkedList {
         return false;
     }
 
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "StringStackLinkedList {Empty Stack}";
+        }
+        return "StringStackLinkedList{" +
+                "head=" + head.stringValue +
+                ", tail=" + tail.stringValue +
+                ", size=" + size +
+                '}';
+    }
 }
