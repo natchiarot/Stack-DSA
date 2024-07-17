@@ -41,7 +41,7 @@ public class StringStackArrays {
         } else {
             arr[topOfStack + 1] = value;
             topOfStack++;
-            System.out.println("The value is successfully inserted");
+            System.out.println(value + " successfully inserted");
         }
     }
 
@@ -58,7 +58,7 @@ public class StringStackArrays {
             String[] newArray = new String[arr.length - 1];
             System.arraycopy(arr, 0, newArray, 0, topOfStack + 1);
             arr = newArray;
-            System.out.println(value + " Successfully removed.");
+            System.out.println("Value successfully removed.");
         }
     }
 
@@ -104,15 +104,5 @@ public class StringStackArrays {
         }
 
         return isPalindrome;
-    }
-
-    //Implement a stack datastructure using LinkedList instead of Arrays
-
-    @Override
-    public String toString() {
-        return "StringStackArrays{" +
-                "arr=" + Arrays.toString(arr) +
-                ", topOfStack=" + topOfStack +
-                '}';
     }
 }

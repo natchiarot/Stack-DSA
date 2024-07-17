@@ -57,13 +57,15 @@ public class StringStackLinkedList {
         } else {
             node.next = head;
             head = node;
+            System.out.println(nodeValue + " successfully inserted");
         }
         size++;
     }
 
     public void pop() {
         if (head == null) {
-            System.out.println("Stack Linked List is empty.");
+            System.out.println("Add value(s) to the stack first.");
+            return;
         }
         Node tempNode = head;
 
@@ -72,6 +74,8 @@ public class StringStackLinkedList {
             tail = null;
         }
 
+        System.out.println("Value successfully removed.");
+
         size--;
     }
 
@@ -79,7 +83,7 @@ public class StringStackLinkedList {
         if (head == null) {
             System.out.println("Stack Linked List does not exist");
         } else {
-            System.out.println(head.value);
+            System.out.println("Peek: " + head.stringValue);
         }
     }
 
@@ -95,6 +99,7 @@ public class StringStackLinkedList {
             }
             head = null;
             tail = null;
+            System.out.println("Entire stack successfully deleted.");
         }
         size = 0;
     }
@@ -131,5 +136,4 @@ public class StringStackLinkedList {
         System.out.println(nodeValue + " is not a palindrome.");
         return false;
     }
-
 }

@@ -40,7 +40,7 @@ public class StackArrays {
         } else {
             arr[topOfStack + 1] = value;
             topOfStack++;
-            System.out.println("The value is successfully inserted");
+            System.out.println(value + " successfully inserted");
         }
     }
 
@@ -57,7 +57,7 @@ public class StackArrays {
            int[] newArray = new int[arr.length - 1];
            System.arraycopy(arr, 0, newArray, 0, topOfStack + 1);
            arr = newArray;
-           System.out.println(value + " Successfully removed.");
+           System.out.println("Value successfully removed.");
         }
     }
 
@@ -79,15 +79,5 @@ public class StackArrays {
             topOfStack--;
         }
         System.out.println("Entire stack successfully deleted.");
-    }
-
-    //Implement a stack datastructure using LinkedList instead of Arrays
-
-    @Override
-    public String toString() {
-        return "StackArrays{" +
-                "arr=" + Arrays.toString(arr) +
-                ", topOfStack=" + topOfStack +
-                '}';
     }
 }
