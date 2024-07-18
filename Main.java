@@ -11,6 +11,8 @@ public class Main {
         stackArrays.push(2);
         stackArrays.push(30);
         stackArrays.push(10);
+        stackArrays.push(11);
+        stackArrays.push(12);
         System.out.println(stackArrays);
         stackArrays.pop();
         stackArrays.peek();
@@ -33,6 +35,7 @@ public class Main {
         stringStackArrays.push("orange");
         stringStackArrays.push("banana");
         stringStackArrays.push("kelp");
+        stringStackArrays.push("sally");
         System.out.println(stringStackArrays);
         stringStackArrays.pop();
         stringStackArrays.peek();
@@ -47,14 +50,17 @@ public class Main {
         System.out.println("Stack Linked List:");
         System.out.println();
 
-        StackLinkedList sLL = new StackLinkedList();
-        sLL.push(1);
+        StackLinkedList sLL = new StackLinkedList(5);
+        sLL.push(5);
         sLL.push(2);
         sLL.push(3);
         sLL.push(4);
+        sLL.push(8);
+        sLL.push(9);
         System.out.println(sLL);
         sLL.pop();
         sLL.peek();
+        sLL.isFull();
         sLL.isEmpty();
         sLL.deleteStack();
         System.out.println(sLL);
@@ -66,10 +72,11 @@ public class Main {
         System.out.println("String Stack Linked List:");
         System.out.println();
 
-        StringStackLinkedList stringSLL = new StringStackLinkedList();
+        StringStackLinkedList stringSLL = new StringStackLinkedList(3);
         stringSLL.push("hello");
         stringSLL.push("racecar");
         stringSLL.push("world");
+        stringSLL.push("hey");
         stringSLL.palindrome(0);
         stringSLL.palindrome(1);
         System.out.println(stringSLL);

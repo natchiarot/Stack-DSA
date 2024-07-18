@@ -37,7 +37,7 @@ public class StringStackArrays {
     //implement a push method
     public void push(String value){
         if (isFull()){
-            System.out.println("the stack is full");
+            return;
         } else {
             arr[topOfStack + 1] = value;
             topOfStack++;
@@ -46,9 +46,6 @@ public class StringStackArrays {
     }
 
     //implement pop method
-    // Since using array lists wasn't used in your code it made the pop method a little trickier.
-    // Learned I could use arraycopy to copy the array elements more efficiently so that way the
-    // element could be physically removed from the array.
     public void pop() {
         if (isEmpty()) {
             System.out.println("Add value(s) to the stack first.");

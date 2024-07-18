@@ -1,39 +1,55 @@
 package Stacks;
 
+// Implement a stack datastructure using LinkedList instead of Arrays.
 public class StackLinkedList {
     public Node head;
     public Node tail;
     public int size;
+    public int setSize;
+    int nodeValue;
 
-    public Node createLinkedList(int nodeValue){
+    public StackLinkedList(int setSize) {
         head = new Node();
         Node node = new Node();
         node.next = null;
         node.value = nodeValue;
         head = node;
-        tail = node;
-        size = 1;
-        return head;
+        tail = null;
+        this.setSize = setSize;
     }
 
-    public void isEmpty() {
+    public boolean isEmpty() {
         if (head == null) {
             System.out.println("Stack Linked List is empty.");
+            return true;
         } else {
             System.out.println("Stack Linked List is not empty.");
+        }
+        return false;
+    }
+
+    public boolean isFull(){
+        if (setSize == size){
+            System.out.println("Stack is full");
+            return true;
+        } else {
+            System.out.println("Stack is not full");
+            return false;
         }
     }
 
     public void push(int nodeValue){
         Node node = new Node();
         node.value = nodeValue;
-        if(head == null) {
-            createLinkedList(nodeValue);
+        if (tail == null) {
+            tail = node;
+        }
+        if(isFull()) {
             return;
+        } else {
             // This adds the item to the top or head of the linked list.
             // This makes more sense because items will always be added to the head
             // so are technically the last in and will also be the first out.
-        } else {
             node.next = head;
             head = node;
             System.out.println(nodeValue + " successfully inserted");
@@ -91,7 +107,7 @@ public class StackLinkedList {
         return "StackLinkedList{" +
                 "head=" + head.value +
                 ", tail=" + tail.value +
-                ", size=" + size +
+                ", set size=" + setSize +
                 '}';
     }
 }

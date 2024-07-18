@@ -5,19 +5,20 @@ public class StringStackLinkedList {
     public Node head;
     public Node tail;
     public int size;
+    public int setSize;
+    public String nodeValue;
 
     DoublyNode dHead;
     DoublyNode dTail;
 
-    public Node createLinkedList(String nodeValue){
+    public StringStackLinkedList(int setSize) {
         head = new Node();
         Node node = new Node();
         node.next = null;
         node.stringValue = nodeValue;
         head = node;
-        tail = node;
-        size = 1;
-        return head;
+        tail = null;
+        this.setSize = setSize;
     }
 
     public void insertDLL (String nodeValue) {
@@ -37,19 +38,33 @@ public class StringStackLinkedList {
         dTail = newNode;
     }
 
-    public void isEmpty() {
+    public boolean isEmpty() {
         if (head == null) {
             System.out.println("Stack Linked List is empty.");
+            return true;
         } else {
             System.out.println("Stack Linked List is not empty.");
+        }
+        return false;
+    }
+
+    public boolean isFull() {
+        if (setSize == size){
+            System.out.println("Stack is full");
+            return true;
+        } else {
+            System.out.println("Stack is not full");
+            return false;
         }
     }
 
     public void push(String nodeValue){
         Node node = new Node();
         node.stringValue = nodeValue;
-        if(head == null) {
-            createLinkedList(nodeValue);
+        if (tail == null) {
+            tail = node;
+        }
+        if(isFull()) {
             return;
         } else {
             node.next = head;
@@ -142,7 +157,7 @@ public class StringStackLinkedList {
         return "StringStackLinkedList{" +
                 "head=" + head.stringValue +
                 ", tail=" + tail.stringValue +
-                ", size=" + size +
+                ", set size=" + setSize +
                 '}';
     }
 }

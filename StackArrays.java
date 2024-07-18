@@ -10,8 +10,8 @@ public class StackArrays {
         this.topOfStack = -1;
         System.out.println("The stack is created with a size of: " + size);
     }
-    //Check if it is empty
 
+    //Check if it is empty
     public boolean isEmpty(){
         if (topOfStack == -1){
             System.out.println("Stack is empty");
@@ -36,7 +36,7 @@ public class StackArrays {
     //implement a push method
     public void push(int value){
         if (isFull()){
-            System.out.println("the stack is full");
+            return;
         } else {
             arr[topOfStack + 1] = value;
             topOfStack++;
